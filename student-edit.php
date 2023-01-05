@@ -1,3 +1,6 @@
+<?php
+require 'dbcon.php'; 
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -8,7 +11,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <title>add student</title>
+    <title>update student</title>
   </head>
   <body>
    <div class="container mt-5">
@@ -17,12 +20,33 @@
             <div class="card">
 
                <div class="card-header">
-                    <h4>student add
+                    <h4>Student Edit
                        <a href="index.php" class="btn btn-danger float-end">back</a>
                    
                      </h4>
                  </div>
                  <div class="card-body">
+                    <?php
+                    if(isset($_GET['Id'])){
+                        echo $student_id = mysqli_real_escape_string($con, $_GET['Id']);
+                        $query = "Select * FROM students WHERE id = '$student_id' ";
+                        $query_run = mysqli_query($con, $query);
+
+                        if(mysqli_num_rows($query_run) > 0){
+                            $student = mysqli_fetch_array($query_run);
+                            print_r($student );
+                        
+
+                        }
+
+
+                        else{
+                            echo "no data";
+                        }
+
+
+                    }
+                    ?>
                     <form action="code.php" method="POST">
 
 
@@ -45,7 +69,7 @@
                         </div>
 
                         <div class="mb-3">
-                           <button type="submit" name="save_student" class="btn btn-primary" > save student</button>
+                           <button type="submit" name="update_student" class="btn btn-primary" > Update student</button>
                         </div>
                     
                     
