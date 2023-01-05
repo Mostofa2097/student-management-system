@@ -20,7 +20,7 @@ require 'dbcon.php';
             <div class="card">
 
                <div class="card-header">
-                    <h4>Student Edit
+                    <h4>Student View
                        <a href="index.php" class="btn btn-danger float-end">back</a>
                    
                      </h4>
@@ -36,34 +36,44 @@ require 'dbcon.php';
                             $student = mysqli_fetch_array($query_run);
                            ?>
                          
-                    <form action="code.php" method="POST">
-                      <input type="hidden" name="student_id" value="<?=$student['Id']?>">
+                   
 
 
                         <div class="mb-3">
                           <label for="">student name</label>
-                          <input type="text" value="<?=$student["name"];?>" name="name" class="form-control">
+                        
+                          <p class="form-control">
+                          <?=$student["name"];?>
+
+                          </p>
                         </div>
 
                         <div class="mb-3">
                           <label for="">student email</label>
-                          <input type="text" name="email" value="<?=$student["email"];?>" class="form-control">
+                          <p class="form-control">
+                          <?=$student["email"];?>
+
+                          </p>
                         </div>
                         <div class="mb-3">
                           <label for="">student phone</label>
-                          <input type="text" name="phone" value="<?=$student["phone"];?>" class="form-control">
+                          <p class="form-control">
+                          <?=$student["phone"];?>
+
+                          </p>
                         </div>
                         <div class="mb-3">
                           <label for="">student course</label>
-                          <input type="text" name="course" value="<?=$student["course"];?>" class="form-control">
+                          <p class="form-control">
+                          <?=$student["course"];?>
+
+                          </p>
                         </div>
 
-                        <div class="mb-3">
-                           <button type="submit" name="update_student" class="btn btn-primary" > Update student</button>
-                        </div>
+                        
                     
                     
-                    </form>
+                  
 
                       <?php 
                         

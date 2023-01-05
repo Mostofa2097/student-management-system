@@ -1,4 +1,5 @@
 <?php
+//session_start();
 require 'dbcon.php';
 
 
@@ -22,6 +23,7 @@ require 'dbcon.php';
 
 
     <div class="container">
+      <?php ?>
       <div class="row">
         <div class="cal-md-12">
           <div class="card">
@@ -61,7 +63,7 @@ require 'dbcon.php';
                         <td> <?= $student["phone"] ; ?></td>
                         <td> <?= $student["course"] ; ?></td>
                         <td>
-                          <a href="" class="btn btn-info btn-sm">View</a>
+                          <a href="student-view.php?Id=<?=$student["Id"] ; ?>" class="btn btn-info btn-sm">View</a>
                           <a href="student-edit.php?Id=<?=$student["Id"] ; ?>" class="btn btn-success btn-sm">Edit</a>
                           <a href="" class="btn btn-danger btn-sm">Delete</a>
                         </td>
